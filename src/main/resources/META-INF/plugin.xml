@@ -1,0 +1,16 @@
+<idea-plugin>
+    <id>com.example.rider-file-filter</id>
+    <name>Custom File Filter</name>
+    <vendor>Developer</vendor>
+    <description>Hides specified folders and files from Rider's File System and Solution explorers.</description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.rider</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <treeStructureProvider implementation="com.example.filter.FileFilterTreeProvider"/>
+        <projectViewPane implementation="com.example.filter.FilteringFileSystemPane"/>
+        <postStartupActivity implementation="com.example.filter.ActivateFilteringFileSystemActivity"/>
+        <solutionExplorerCustomization implementation="com.example.filter.HideSolutionExplorerCustomization"/>
+    </extensions>
+</idea-plugin>
