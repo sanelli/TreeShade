@@ -23,7 +23,7 @@ class FilteringFileSystemRootNode(
     private fun wrapChild(child: AbstractTreeNode<*>): AbstractTreeNode<*>? {
         val fsNode = child as? FileSystemNodeBase ?: return child
         val virtualFile = fsNode.virtualFile
-        if (HideRules.isHidden(virtualFile)) return null
+        if (HideRules.isHidden(project, virtualFile)) return null
         return FilteringFileSystemNode(project, virtualFile, emptyList())
     }
 }

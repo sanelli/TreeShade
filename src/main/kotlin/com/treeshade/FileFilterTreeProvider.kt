@@ -18,11 +18,12 @@ class FileFilterTreeProvider : TreeStructureProvider, DumbAware {
     }
 
     private fun isHidden(node: AbstractTreeNode<*>): Boolean {
+        val project = node.project ?: return false
         val file = (node as? ProjectViewNode<*>)?.virtualFile
         if (file != null) {
-            return HideRules.isHidden(file)
+            return HideRules.isHidden(project, file)
         }
         val name = node.name ?: return false
-        return HideRules.isHiddenName(name)
+        return HideRules.isHiddenName(project, name)
     }
 }

@@ -18,7 +18,7 @@ class HideSolutionExplorerCustomization(
     ) {
         children.removeAll { node ->
             val name = node.name ?: return@removeAll false
-            HideRules.isHiddenName(name)
+            HideRules.isHiddenName(project, name)
         }
     }
 
@@ -29,7 +29,7 @@ class HideSolutionExplorerCustomization(
     ) {
         children.removeAll { node ->
             val name = node.name ?: return@removeAll false
-            HideRules.isHiddenName(name)
+            HideRules.isHiddenName(project, name)
         }
     }
 }

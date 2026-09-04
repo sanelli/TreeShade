@@ -12,5 +12,10 @@
         <projectViewPane implementation="com.treeshade.FilteringFileSystemPane"/>
         <postStartupActivity implementation="com.treeshade.ActivateFilteringFileSystemActivity"/>
         <solutionExplorerCustomization implementation="com.treeshade.HideSolutionExplorerCustomization"/>
+        <projectConfigurable
+            parentId="tools"
+            instance="com.treeshade.TreeShadeConfigurable"
+            id="com.treeshade.settings"
+            displayName="TreeShade"/>
     </extensions>
 </idea-plugin>
