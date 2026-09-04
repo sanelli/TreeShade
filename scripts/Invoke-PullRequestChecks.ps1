@@ -17,9 +17,13 @@ $gradleFile = Join-Path $RepoRoot 'build.gradle.kts'
 
 Write-Host "==> Resolving plugin versions"
 $candidate = & $getVersion -Path $gradleFile
-$baselineContent = git -C $RepoRoot show "${BaselineRef}:build.gradle.kts"
-if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($baselineContent)) {
-    throw "Failed to read build.gradle.kts from $BaselineRef"
+$baselineLines = @(git -C $RepoRoot show "${BaselineRef}:build.gradle.kts" 2>&1)
+if ($LASTEXITCODE -ne 0) {
+    throw "Failed to read build.gradle.kts from $BaselineRef`: $($baselineLines -join "`n")"
+}
+$baselineContent = $baselineLines -join "`n"
+if ([string]::IsNullOrWhiteSpace($baselineContent)) {
+    throw "Failed to read build.gradle.kts from $BaselineRef (empty content)"
 }
 $baseline = & $getVersion -Content $baselineContent
 

@@ -6,7 +6,7 @@
   Path to build.gradle.kts (or any file containing version = "...").
 
 .PARAMETER Content
-  Raw file content. Use instead of Path when reading from git show.
+  Raw file content (string or line array from git show). Use instead of Path.
 #>
 [CmdletBinding()]
 param(
@@ -14,26 +14,48 @@ param(
     [string] $Path,
 
     [Parameter(ParameterSetName = 'Content')]
-    [string] $Content
+    [AllowNull()]
+    [object] $Content
 )
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
+function ConvertTo-SingleString {
+    param([AllowNull()][object] $Value)
+
+    if ($null -eq $Value) {
+        return ''
+    }
+
+    if ($Value -is [string]) {
+        return $Value
+    }
+
+    if ($Value -is [System.Collections.IEnumerable]) {
+        return (($Value | ForEach-Object { "$_" }) -join "`n")
+    }
+
+    return [string]$Value
+}
+
 if ($PSCmdlet.ParameterSetName -eq 'Path') {
     if (-not (Test-Path -LiteralPath $Path)) {
         throw "File not found: $Path"
     }
-    $Content = Get-Content -LiteralPath $Path -Raw
+    $scriptText = Get-Content -LiteralPath $Path -Raw
+}
+else {
+    $scriptText = ConvertTo-SingleString -Value $Content
 }
 
-if ([string]::IsNullOrWhiteSpace($Content)) {
+if ([string]::IsNullOrWhiteSpace($scriptText)) {
     throw 'No content provided to parse for version.'
 }
 
 # Prefer the project version assignment (not plugin version = "..." lines).
 $match = [regex]::Match(
-    $Content,
+    $scriptText,
     '(?m)^\s*version\s*=\s*"(?<version>[^"]+)"\s*$'
 )
 
