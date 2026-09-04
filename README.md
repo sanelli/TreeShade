@@ -33,7 +33,7 @@ Enter one name per line for hidden folders and hidden files. Names match the ent
 ## Build
 
 ```bash
-gradle buildPlugin
+gradle buildPlugin --no-daemon
 ```
 
 The installable package is written to:

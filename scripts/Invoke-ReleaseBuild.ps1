@@ -43,9 +43,12 @@ foreach ($name in @('CERTIFICATE_CHAIN', 'PRIVATE_KEY', 'PRIVATE_KEY_PASSWORD'))
 }
 
 Write-Host "==> Building and signing plugin with Gradle (signPlugin)"
+Write-Host "    Using verbose Gradle logging (--info). First runs can take several minutes while Rider SDK artifacts download."
 Push-Location $RepoRoot
 try {
-    gradle signPlugin --console=plain --no-daemon
+    $gradleArgs = @('signPlugin') + @(& (Join-Path $PSScriptRoot 'Get-GradleCiArgs.ps1'))
+    Write-Host ("    gradle " + ($gradleArgs -join ' '))
+    & gradle @gradleArgs
     if ($LASTEXITCODE -ne 0) {
         throw "gradle signPlugin failed with exit code $LASTEXITCODE"
     }
