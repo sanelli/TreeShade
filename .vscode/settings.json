@@ -1,0 +1,14 @@
+{
+  "files.exclude": {
+    "**/.gradle": true,
+    "**/.kotlin": true,
+    "**/.intellijPlatform": true,
+    "**/build": true
+  },
+  "search.exclude": {
+    "**/.gradle": true,
+    "**/.kotlin": true,
+    "**/.intellijPlatform": true,
+    "**/build": true
+  }
+}
