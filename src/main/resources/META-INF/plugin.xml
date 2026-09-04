@@ -2,11 +2,10 @@
     <id>com.treeshade</id>
     <name>Tree Shade</name>
     <vendor>sanelli</vendor>
-    <description><![CDATA[
-    <p><b>Tree Shade</b> keeps Rider’s File System and Solution explorers focused on the files that matter.</p>
-    <p>Hide noisy folders and files by name (for example <code>bin</code>, <code>obj</code>, <code>lib</code>, <code>.vscode</code>, <code>.idea</code>, and <code>.DS_Store</code>), with remaining entries sorted folders-first, then alphabetically.</p>
-    <p>Configure per project under <b>Settings → Tools → Tree Shade</b>.</p>
-    ]]></description>
+    <description><![CDATA[Tree Shade keeps Rider's File System and Solution explorers focused on the files that matter.
+<br/>
+<p>Hide noisy folders and files by name (for example <code>bin</code>, <code>obj</code>, <code>lib</code>, <code>.vscode</code>, <code>.idea</code>, and <code>.DS_Store</code>), with remaining entries sorted folders-first, then alphabetically.</p>
+<p>Configure per project under <b>Settings | Tools | Tree Shade</b>.</p>]]></description>
     <change-notes><![CDATA[
     <ul>
       <li>Hide folders and files by name in Rider’s File System and Solution explorers</li>
