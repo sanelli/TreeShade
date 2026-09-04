@@ -21,7 +21,7 @@ class FilteringFileSystemNode(
     ): FileSystemNodeBase = FilteringFileSystemNode(project, virtualFile, nestedFiles)
 
     override fun getVirtualFileChildren(): List<VirtualFile> =
-        super.getVirtualFileChildren().filterNot { HideRules.isHidden(project, it) }
+        HideRules.sortFiles(super.getVirtualFileChildren().filterNot { HideRules.isHidden(project, it) })
 
     override fun update(presentation: PresentationData) {
         val virtualFile = file

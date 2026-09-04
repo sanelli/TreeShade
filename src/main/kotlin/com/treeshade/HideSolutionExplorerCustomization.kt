@@ -20,6 +20,7 @@ class HideSolutionExplorerCustomization(
             val name = node.name ?: return@removeAll false
             HideRules.isHiddenName(project, name)
         }
+        HideRules.sortNodesInPlace(children)
     }
 
     override fun modifyChildren(
@@ -31,5 +32,6 @@ class HideSolutionExplorerCustomization(
             val name = node.name ?: return@removeAll false
             HideRules.isHiddenName(project, name)
         }
+        HideRules.sortNodesInPlace(children)
     }
 }

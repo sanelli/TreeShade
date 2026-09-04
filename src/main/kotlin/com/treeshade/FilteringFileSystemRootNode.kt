@@ -17,7 +17,7 @@ class FilteringFileSystemRootNode(
 
     override fun calculateChildren(): MutableList<AbstractTreeNode<*>> {
         val originalChildren = FileSystemExplorerRootNode(project).children
-        return originalChildren.mapNotNull { child -> wrapChild(child) }.toMutableList()
+        return HideRules.sortNodes(originalChildren.mapNotNull { child -> wrapChild(child) })
     }
 
     private fun wrapChild(child: AbstractTreeNode<*>): AbstractTreeNode<*>? {

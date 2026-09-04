@@ -14,7 +14,7 @@ class FileFilterTreeProvider : TreeStructureProvider, DumbAware {
         children: MutableCollection<AbstractTreeNode<*>>,
         settings: ViewSettings?,
     ): MutableCollection<AbstractTreeNode<*>> {
-        return children.filterNot(::isHidden).toMutableList()
+        return HideRules.sortNodes(children.filterNot(::isHidden))
     }
 
     private fun isHidden(node: AbstractTreeNode<*>): Boolean {
