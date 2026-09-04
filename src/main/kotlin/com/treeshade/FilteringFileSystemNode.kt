@@ -1,4 +1,4 @@
-package com.example.filter
+package com.treeshade
 
 import com.intellij.ide.projectView.PresentationData
 import com.intellij.openapi.project.Project

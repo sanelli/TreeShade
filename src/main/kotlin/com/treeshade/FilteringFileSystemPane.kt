@@ -1,4 +1,4 @@
-package com.example.filter
+package com.treeshade
 
 import com.intellij.icons.AllIcons
 import com.intellij.ide.SelectInContext

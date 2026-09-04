@@ -4,8 +4,8 @@ plugins {
     id("org.jetbrains.intellij.platform") version "2.18.1"
 }
 
-group = "com.example"
-version = "1.2.0"
+group = "com.treeshade"
+version = "0.0.1-preview.1"
 
 repositories {
     mavenCentral()

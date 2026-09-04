@@ -1,4 +1,4 @@
-package com.example.filter
+package com.treeshade
 
 import com.intellij.ide.projectView.ProjectViewNode
 import com.intellij.ide.projectView.TreeStructureProvider
