@@ -1,7 +1,7 @@
-# TreeShade
+# Tree Shade
 
 <p align="center">
-  <img src="docs/treeshade-icon.png" alt="TreeShade icon: an oak tree with letters R and D enjoying the shade" width="192" />
+  <img src="docs/treeshade-icon.png" alt="Tree Shade icon: an oak tree with letters R and D enjoying the shade" width="192" />
 </p>
 
 Rider plugin that hides folders and files you do not need to see in the **File System** and **Solution** explorers, and keeps the remaining entries sorted clearly.
@@ -21,7 +21,7 @@ Rider plugin that hides folders and files you do not need to see in the **File S
 
 ## Configuration
 
-Open **Settings → Tools → TreeShade**.
+Open **Settings → Tools → Tree Shade**.
 
 Enter one name per line for hidden folders and hidden files. Names match the entry name only (not a full path). After you apply, the project view refreshes.
 

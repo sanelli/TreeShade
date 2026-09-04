@@ -19,7 +19,7 @@ class TreeShadeConfigurable(
     private var foldersArea: JBTextArea? = null
     private var filesArea: JBTextArea? = null
 
-    override fun getDisplayName(): String = "TreeShade"
+    override fun getDisplayName(): String = "Tree Shade"
 
     override fun createComponent(): JComponent {
         val folders = JBTextArea(8, 40).also {
