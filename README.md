@@ -1,5 +1,9 @@
 # TreeShade
 
+<p align="center">
+  <img src="docs/treeshade-icon.png" alt="TreeShade icon: an oak tree with letters R and D enjoying the shade" width="192" />
+</p>
+
 Rider plugin that hides folders and files you do not need to see in the **File System** and **Solution** explorers, and keeps the remaining entries sorted clearly.
 
 ## Features
