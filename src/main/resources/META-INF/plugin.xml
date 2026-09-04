@@ -2,7 +2,11 @@
     <id>com.treeshade</id>
     <name>TreeShade</name>
     <vendor>Developer</vendor>
-    <description>Hides specified folders and files from Rider's File System and Solution explorers.</description>
+    <description><![CDATA[
+    <p><b>TreeShade</b> keeps Rider’s File System and Solution explorers focused on the files that matter.</p>
+    <p>Hide noisy folders and files by name (for example <code>bin</code>, <code>obj</code>, <code>lib</code>, <code>.vscode</code>, <code>.idea</code>, and <code>.DS_Store</code>), with remaining entries sorted folders-first, then alphabetically.</p>
+    <p>Configure per project under <b>Settings → Tools → TreeShade</b>.</p>
+    ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.rider</depends>
