@@ -5,6 +5,9 @@ import com.intellij.ide.util.treeView.AbstractTreeNode
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import com.jetbrains.rider.projectView.views.FileSystemNodeBase
+import com.jetbrains.rider.projectView.workspace.ProjectModelEntity
+import com.jetbrains.rider.projectView.workspace.isProjectFile
+import com.jetbrains.rider.projectView.workspace.isProjectFolder
 
 object HideRules {
     fun isHidden(project: Project, file: VirtualFile): Boolean {
@@ -40,8 +43,18 @@ object HideRules {
         }
     }
 
-    private fun isDirectoryNode(node: AbstractTreeNode<*>): Boolean {
+    fun isDirectoryNode(node: AbstractTreeNode<*>): Boolean {
         virtualFileOf(node)?.let { return it.isDirectory }
+
+        when (val value = node.value) {
+            is VirtualFile -> return value.isDirectory
+            is ProjectModelEntity -> {
+                if (value.isProjectFolder()) return true
+                if (value.isProjectFile()) return false
+            }
+        }
+
+        // Last resort: expandable nodes behave like folders in the tree.
         return !node.isAlwaysLeaf
     }
 

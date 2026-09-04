@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.treeshade"
-version = "0.1.0-preview.2"
+version = "0.1.0-preview.4"
 
 repositories {
     mavenCentral()

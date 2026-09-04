@@ -11,6 +11,9 @@ import javax.swing.Icon
 /**
  * Rider's built-in File System explorer ignores [com.intellij.ide.projectView.TreeStructureProvider].
  * This pane mirrors that explorer while filtering via [FilteringFileSystemNode].
+ *
+ * Folders-first sorting is provided by [FilteringFileSystemRootNode.createComparator],
+ * which [com.jetbrains.rider.projectView.views.impl.SolutionViewTreeModel] uses.
  */
 class FilteringFileSystemPane(
     project: Project,
