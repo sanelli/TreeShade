@@ -41,4 +41,13 @@ intellijPlatform {
             untilBuild = provider { null }
         }
     }
+
+    // Signing uses CERTIFICATE_CHAIN, PRIVATE_KEY, and PRIVATE_KEY_PASSWORD.
+    // Values may be Base64-encoded; the Gradle plugin decodes them automatically.
+    // See: https://plugins.jetbrains.com/docs/intellij/plugin-signing.html
+    signing {
+        certificateChain = providers.environmentVariable("CERTIFICATE_CHAIN")
+        privateKey = providers.environmentVariable("PRIVATE_KEY")
+        password = providers.environmentVariable("PRIVATE_KEY_PASSWORD")
+    }
 }
