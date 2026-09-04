@@ -30,7 +30,7 @@ class TreeShadeSettings : PersistentStateComponent<TreeShadeSettings.State> {
     }
 
     companion object {
-        val DEFAULT_FOLDERS = listOf("alire", ".git", "lib", "bin", "obj", "config")
+        val DEFAULT_FOLDERS = listOf("bin", "obj", "lib", ".vscode", ".idea")
         val DEFAULT_FILES = listOf(".DS_Store")
 
         fun getInstance(project: Project): TreeShadeSettings = project.service()

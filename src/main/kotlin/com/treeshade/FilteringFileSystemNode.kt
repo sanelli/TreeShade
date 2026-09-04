@@ -12,7 +12,7 @@ import com.jetbrains.rider.projectView.views.fileSystemExplorer.FileSystemExplor
 class FilteringFileSystemNode(
     project: Project,
     file: VirtualFile,
-    nestedFiles: List<NestingNode<VirtualFile>>,
+    nestedFiles: List<NestingNode<VirtualFile>> = emptyList(),
 ) : FileSystemNodeBase(project, file, nestedFiles) {
 
     override fun createNode(
