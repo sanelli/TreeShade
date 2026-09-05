@@ -3,6 +3,7 @@ package com.treeshade
 import com.intellij.icons.AllIcons
 import com.intellij.ide.SelectInContext
 import com.intellij.ide.SelectInTarget
+import com.intellij.ide.projectView.ProjectView
 import com.intellij.openapi.project.Project
 import com.jetbrains.rider.projectView.views.SolutionViewPaneBase
 import com.jetbrains.rider.projectView.views.impl.SolutionViewSelectInTargetBase
@@ -46,5 +47,10 @@ class FilteringFileSystemPane(
         const val ID = "FilteredFileSystemExplorer"
         const val TITLE = "File System"
         private val companionWeight = 0
+
+        fun tryGetInstance(project: Project): FilteringFileSystemPane? {
+            if (project.isDisposed) return null
+            return ProjectView.getInstance(project).getProjectViewPaneById(ID) as? FilteringFileSystemPane
+        }
     }
 }
