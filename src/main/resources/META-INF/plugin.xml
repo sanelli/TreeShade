@@ -12,6 +12,7 @@
       <li>Per-project settings under <b>Settings → Tools → Tree Shade</b></li>
       <li>Folders-first sorting for remaining tree entries</li>
       <li>Sensible defaults (<code>bin</code>, <code>obj</code>, <code>lib</code>, <code>.vscode</code>, <code>.idea</code>, <code>.DS_Store</code>)</li>
+      <li>File System tree now updates when files are added or removed</li>
     </ul>
     ]]></change-notes>
 
@@ -21,6 +22,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <treeStructureProvider implementation="com.treeshade.FileFilterTreeProvider"/>
         <projectViewPane implementation="com.treeshade.FilteringFileSystemPane"/>
+        <projectModelViewUpdater implementation="com.treeshade.FilteringFileSystemUpdater"/>
         <postStartupActivity implementation="com.treeshade.ActivateFilteringFileSystemActivity"/>
         <solutionExplorerCustomization implementation="com.treeshade.HideSolutionExplorerCustomization"/>
         <projectConfigurable
